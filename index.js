@@ -14,6 +14,8 @@ const passport = require('passport');
 const { User } = require('./model/User')
 const LocalStrategy = require('passport-local').Strategy;
 const crypto = require('crypto')
+require('dotenv').config();
+
 
 
 
