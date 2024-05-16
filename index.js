@@ -15,7 +15,7 @@ const { User } = require('./model/User')
 const LocalStrategy = require('passport-local').Strategy;
 const crypto = require('crypto')
 require('dotenv').config();
-
+var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 
 
 
@@ -54,7 +54,7 @@ passport.use(new LocalStrategy(
                 if (!crypto.timingSafeEqual(user.password, hashedPassword)) {
                     return done(null, false, { message: "invaid Credentials" });
                 } else {
-                    return done(null, user)
+                    return done(null, {id:user.id , role:user.role})
                     
                 }
            

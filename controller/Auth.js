@@ -19,7 +19,7 @@ exports.createUser = async (req, res) => {
               if(err){
                 res.status(401).json(err);
               }else{
-                res.status(201).json(doc);
+                res.status(201).json(sanitizeUser(doc));
               }
             })
             // res.status(201).json(doc);
@@ -49,7 +49,7 @@ exports.loginUser = async (req, res) => {
 }
 
 exports.checkAuth = async (req, res) => {
-    res.json(req.user);
-    console.log("This is CheckUser " ,req.user)
+    res.json(req.params.id);
+    console.log("This is CheckUser " ,req.params.id)
 }
 
